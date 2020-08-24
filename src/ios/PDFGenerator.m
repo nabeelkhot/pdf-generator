@@ -136,7 +136,7 @@
     
     if (data != NULL){
 	WKWebView *wkWebView = (WKWebView*)self.webView;
-        NSURL *base =  [[NSURL alloc] initWithString:[[wkWebView.URL absoluteString]]];
+        NSURL *base =  [[NSURL alloc] initWithString:[[wkWebView.URL absoluteString] stringByDeletingLastPathComponent]];
         
         self.htmlPdfKit = [BNHtmlPdfKit saveHTMLAsPdf:data
                                              pageSize:pageSize
