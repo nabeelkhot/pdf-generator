@@ -135,7 +135,8 @@
                                              failure:[self GetErrorHandler:command]];
     
     if (data != NULL){
-        NSURL *base =  [[NSURL alloc] initWithString:[[self.webViewEngine.URL absoluteString] stringByDeletingLastPathComponent]];
+	WKWebView *wkWebView = (WKWebView*)self.webView;
+        NSURL *base =  [[NSURL alloc] initWithString:[[wkWebView.URL absoluteString]
         
         self.htmlPdfKit = [BNHtmlPdfKit saveHTMLAsPdf:data
                                              pageSize:pageSize
